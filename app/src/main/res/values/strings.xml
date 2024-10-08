@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Knucklebones</string>
+    <string name="enter_name">Gib deinen Namen ein:</string>
+    <string name="info_button">Anzeigen der Spielregeln</string>
+    <string name="start_button">Start</string>
+
+    <string name="close_button">Close Instructions</string>
+    <string name="instructions_header"><u>Instructions</u></string>
+
+    <string name="instructions_text">
+        Das Spiel besteht aus zwei 3x3 Feldern.\n Der/Die Spielende und Computer sind abwechselnd an der Reihe.\n
+        \n
+        In jedem Zug wird ein sechsseitiger Würfel geworfen und das Ergebnis wird in eine Spalte des eigenen Feldes eintragen.\n
+        Eine Spalte kann maximal drei Würfel aufnehmen.\n
+        \n
+        Jede/r Spielende hat eine Punktzahl, die sich aus der Summe der Würfelwerte auf seinem Feld ergibt.\n
+
+        Wenn ein/e Spieler:in mehrere Würfel mit dem gleichen Wert in dieselbe Spalte legt,
+        wird der Punktwert jedes dieser Würfel mit der Anzahl der Würfel mit demselben Wert in dieser Spalte multipliziert.\n
+        (Beispiel: Wenn eine Spalte die Werte 3-3-2 enthält, dann ist die Punktzahl für diese Spalte 3x2 + 3x2 + 2x1 = 14.)\n
+        \n
+        Wenn ein/e Spieler:in einen Würfel platziert, werden alle Würfel mit dem gleichen Wert in der entsprechenden Spalte des gegnerischen Spielfelds zerstört.\n
+        \n
+        Das Spiel endet, wenn ein/e Spieler:in sein/ihr 3x3-Feld vollständig gefüllt hat.
+        Gewonnen hat der/die Spieler:in mit der höchsten Punktezahl.
+    </string>
+
+    <string name="computer_points">Computer: 0</string>
+    <string name="player_points">%s : %d</string>
+
+    <string name="dice_area">Dice Area</string>
+    <string name="back_home_button">Back Home</string>
+    <string name="dice_button">Dice Buttom</string>
+
+</resources>
