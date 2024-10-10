@@ -25,11 +25,14 @@
         Gewonnen hat der/die Spieler:in mit der höchsten Punktezahl.
     </string>
 
-    <string name="computer_points">Computer: 0</string>
+    <string name="computer_points">%s : %d</string>
     <string name="player_points">%s : %d</string>
 
     <string name="dice_area">Dice Area</string>
     <string name="back_home_button">Back Home</string>
     <string name="dice_button">Dice Buttom</string>
+
+    <string name="end_game_header">%s</string>
+    <string name="end_game_text">%s\n%s</string>
 
 </resources>

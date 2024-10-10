@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     private fun startGame(playerName: String) {
         val intent = Intent(this, GameBoardActivity::class.java)
         intent.putExtra("PLAYER_NAME", playerName)
+        intent.putExtra("COMPUTER_NAME", "Computer")    //TODO: Einbauen von zweitem Spielernamen
         startActivity(intent)
     }
 

@@ -1,8 +1,10 @@
 package com.staszewskiLucas.knucklebones.Activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import com.staszewskiLucas.knucklebones.GameController
@@ -19,6 +21,8 @@ class GameBoardActivity: AppCompatActivity() {
     lateinit var playerBoard: Board
     lateinit var controller: GameController
     lateinit var diceButton: ImageView
+    lateinit var computerStats: TextView
+    lateinit var playerStats: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,15 +30,19 @@ class GameBoardActivity: AppCompatActivity() {
         binding = GameBoardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val computerName = intent.getStringExtra("COMPUTER_NAME")!!
         val playerName = intent.getStringExtra("PLAYER_NAME")!!
 
         computerBoard = createComputerBoard()
         playerBoard = createPlayerBoard()
+        computer = Player(computerName, computerBoard, true)
+        player = Player(playerName, playerBoard, false)
 
-        computer = Player("Computer", computerBoard)
-        player = Player(playerName, playerBoard)
+        controller = GameController(this, listOf(player, computer))
 
-        controller = GameController(this, computer, player)
+        computerStats = binding.computerStats
+        playerStats = binding.playerStats
+        updatePointsLabel()
 
         diceButton = binding.diceButton
 
@@ -44,13 +52,19 @@ class GameBoardActivity: AppCompatActivity() {
 
 
         playerBoard.diceColumnOne.setOnClickListener {
-            controller.setDiceInColumn(1)
+            if(!controller.checkIfColumnFull(playerBoard.boardPointValues[0])) {
+                controller.setDiceInColumn(0)
+            }
         }
         playerBoard.diceColumnTwo.setOnClickListener {
-            controller.setDiceInColumn(2)
+            if(!controller.checkIfColumnFull(playerBoard.boardPointValues[1])) {
+                controller.setDiceInColumn(1)
+            }
         }
         playerBoard.diceColumnThree.setOnClickListener {
-            controller.setDiceInColumn(3)
+            if(!controller.checkIfColumnFull(playerBoard.boardPointValues[2])) {
+                controller.setDiceInColumn(2)
+            }
         }
     }
 
@@ -86,6 +100,7 @@ class GameBoardActivity: AppCompatActivity() {
     }
 
     fun setDiceIconInColumn(column: Int, index: Int) {
+        println("Current Dice: ${controller.currentDiceNumber}")
         if(controller.currentPlayer == player) {
             when (controller.currentDiceNumber) {
                 1 -> controller.currentPlayer.board.allDiceAreas[column][index].setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.icon_dice_one_gold))
@@ -105,7 +120,49 @@ class GameBoardActivity: AppCompatActivity() {
                 6 -> controller.currentPlayer.board.allDiceAreas[column][index].setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.icon_dice_six_silver))
             }
         }
+    }
 
+    fun updateEnemyColumn(enemy: Player, column: Int) {
+        if(enemy == player) {
+            enemy.board.allDiceAreas[column].forEachIndexed { index, area ->
+                when (enemy.board.boardPointValues[column][index]) {
+                    1 -> area.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.icon_dice_one_gold))
+                    2 -> area.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.icon_dice_two_gold))
+                    3 -> area.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.icon_dice_three_gold))
+                    4 -> area.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.icon_dice_four_gold))
+                    5 -> area.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.icon_dice_five_gold))
+                    6 -> area.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.icon_dice_six_gold))
+                    else -> area.setImageDrawable(null)
+                }
+            }
+        } else {
+            enemy.board.allDiceAreas[column].forEachIndexed { index, area ->
+                when (enemy.board.boardPointValues[column][index]) {
+                    1 -> area.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.icon_dice_one_silver))
+                    2 -> area.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.icon_dice_two_silver))
+                    3 -> area.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.icon_dice_three_silver))
+                    4 -> area.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.icon_dice_four_silver))
+                    5 -> area.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.icon_dice_five_silver))
+                    6 -> area.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.icon_dice_six_silver))
+                    else -> area.setImageDrawable(null)
+                }
+            }
+        }
+    }
+
+    fun updatePointsLabel() {
+        playerStats.text = String.format(getResources().getString(R.string.player_points), player.name, player.points)
+        computerStats.text = String.format(getResources().getString(R.string.computer_points), computer.name, computer.points)
+    }
+
+    fun switchToEndGameActivity() {
+        val intent = Intent(this, EndGameActivity::class.java)
+        intent.putExtra("COMPUTER_POINTS", computer.points)
+        intent.putExtra("PLAYER_POINTS", player.points)
+        intent.putExtra("COMPUTER_NAME", computer.name)
+        intent.putExtra("PLAYER_NAME", player.name)
+
+        startActivity(intent)
     }
 }
 

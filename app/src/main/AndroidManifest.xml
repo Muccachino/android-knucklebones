@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".Activities.GameBoardActivity"/>
         <activity android:name=".Activities.GameInformationActivity"/>
+        <activity android:name=".Activities.EndGameActivity"/>
     </application>
 
 </manifest>

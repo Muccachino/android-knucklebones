@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/wineRed">
+
+    <LinearLayout
+        android:id="@+id/end_game_text_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="50dp">
+
+        <TextView
+            android:id="@+id/end_game_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/end_game_header"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="50dp"/>
+
+        <TextView
+            android:id="@+id/end_game_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/end_game_text"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/end_game_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/end_game_text_panel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        android:layout_marginTop="100dp">
+
+        <ImageButton
+            android:id="@+id/new_game_button"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="New Game"
+            android:src="@drawable/icon_play"
+            android:layout_marginEnd="50dp"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:background="@drawable/end_game_button_background"/>
+
+        <ImageView
+            android:id="@+id/home_button"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:contentDescription="New Game"
+            android:src="@drawable/icon_home"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:background="@drawable/end_game_button_background"/>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

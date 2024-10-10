@@ -64,24 +64,21 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
                 <ImageView
                     android:id="@+id/computer_dice_one_two"
                     android:contentDescription="@string/dice_area"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
                 <ImageView
                     android:id="@+id/computer_dice_one_three"
                     android:contentDescription="@string/dice_area"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
 
             </LinearLayout>
             <LinearLayout
@@ -99,24 +96,21 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
                 <ImageView
                     android:id="@+id/computer_dice_two_two"
                     android:contentDescription="@string/dice_area"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
                 <ImageView
                     android:id="@+id/computer_dice_two_three"
                     android:contentDescription="@string/dice_area"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/computer_column_three"
@@ -133,24 +127,21 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
                 <ImageView
                     android:id="@+id/computer_dice_three_two"
                     android:contentDescription="@string/dice_area"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
                 <ImageView
                     android:id="@+id/computer_dice_three_three"
                     android:contentDescription="@string/dice_area"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
             </LinearLayout>
         </LinearLayout>
 
@@ -211,24 +202,21 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
                 <ImageView
                     android:id="@+id/player_dice_one_two"
                     android:contentDescription="@string/dice_area"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
                 <ImageView
                     android:id="@+id/player_dice_one_three"
                     android:contentDescription="@string/dice_area"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
 
             </LinearLayout>
             <LinearLayout
@@ -246,24 +234,21 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
                 <ImageView
                     android:id="@+id/player_dice_two_two"
                     android:contentDescription="@string/dice_area"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
                 <ImageView
                     android:id="@+id/player_dice_two_three"
                     android:contentDescription="@string/dice_area"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/player_column_three"
@@ -280,24 +265,21 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
                 <ImageView
                     android:id="@+id/player_dice_three_two"
                     android:contentDescription="@string/dice_area"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
                 <ImageView
                     android:id="@+id/player_dice_three_three"
                     android:contentDescription="@string/dice_area"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/dice_area"
-                    android:src=""/>
+                    android:background="@drawable/dice_area" />
             </LinearLayout>
         </LinearLayout>
 
