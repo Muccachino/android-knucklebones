@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="40dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -50,12 +51,117 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:gravity="center"
-            android:text="Peter Meier"
+            android:text="@string/name_input"
             android:textColor="@color/white"
             android:background="@drawable/input_name_border"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"/>
+
+        <LinearLayout
+            android:id="@+id/player_two_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/enter_name_two"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                />
+
+            <EditText
+                android:id="@+id/name_input_two"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:text="@string/name_input_two"
+                android:textColor="@color/white"
+                android:background="@drawable/input_name_border"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/difficulty_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Difficulty:"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/difficulty_easy"
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:text="@string/easy_button"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/difficulty_button_border_active"/>
+
+                <TextView
+                    android:id="@+id/difficulty_medium"
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:text="@string/medium_button"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/difficulty_button_border_inactive"/>
+
+                <TextView
+                    android:id="@+id/difficulty_hard"
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:text="@string/hard_button"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/difficulty_button_border_inactive"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/material_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zwei Spieler  "
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         
         <TextView
             android:id="@+id/start_button"
@@ -67,7 +173,6 @@
             android:textColor="@color/white"
             android:gravity="center"
             android:layout_marginTop="40dp"
-
             android:background="@drawable/start_button_border"/>
     </LinearLayout>
 

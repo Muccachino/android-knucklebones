@@ -1,8 +1,16 @@
 <resources>
     <string name="app_name">Knucklebones</string>
-    <string name="enter_name">Gib deinen Namen ein:</string>
+    <string name="enter_name">Spieler Name: </string>
+    <string name="name_input">Spieler</string>
+    <string name="enter_name_two">Spieler Zwei Name:</string>
+    <string name="name_input_two">Spieler 2</string>
     <string name="info_button">Anzeigen der Spielregeln</string>
     <string name="start_button">Start</string>
+
+    <string name="difficulty_text">Schwierigkeit: </string>
+    <string name="easy_button">Einfach</string>
+    <string name="medium_button">Mittel</string>
+    <string name="hard_button">Schwer</string>
 
     <string name="close_button">Close Instructions</string>
     <string name="instructions_header"><u>Instructions</u></string>

@@ -18,7 +18,7 @@
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:background="@color/green"
-        app:layout_constraintBottom_toTopOf="@id/computer_board"
+        app:layout_constraintBottom_toTopOf="@id/roll_dice_panel_top"
         app:layout_constraintTop_toTopOf="parent">
 
         <View
@@ -35,11 +35,32 @@
 
     </LinearLayout>
 
+    <FrameLayout
+        android:id="@+id/roll_dice_panel_top"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/back_home_panel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/green">
+
+        <ImageView
+            android:id="@+id/dice_button_top"
+            android:contentDescription="@string/dice_button"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/icon_dice_one_silver"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"/>
+
+    </FrameLayout>
+
         <LinearLayout
             android:id="@+id/computer_board"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/back_home_panel"
+            app:layout_constraintTop_toBottomOf="@id/roll_dice_panel_top"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@color/green"
@@ -160,7 +181,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/computer_points"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textColor="@color/silver"
                 android:gravity="center"
                 android:background="@color/green"/>
@@ -170,7 +191,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/player_points"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textColor="@color/gold"
                 android:gravity="center"
                 android:background="@color/wineRed"/>
@@ -284,7 +305,7 @@
         </LinearLayout>
 
     <FrameLayout
-        android:id="@+id/roll_dice_panel"
+        android:id="@+id/roll_dice_panel_bottom"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/player_board"
@@ -294,7 +315,7 @@
         android:background="@color/wineRed">
 
         <ImageView
-            android:id="@+id/dice_button"
+            android:id="@+id/dice_button_bottom"
             android:contentDescription="@string/dice_button"
             android:layout_width="70dp"
             android:layout_height="70dp"

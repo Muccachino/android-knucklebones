@@ -21,24 +21,61 @@ class GameController(
 
     fun computerChooseColumn() {
         if(currentPlayer.difficulty == "easy") {
-            var column = Random.nextInt(0,2) + 1
-            while (checkIfColumnFull(currentPlayer.board.boardPointValues[column])) {
-                column = Random.nextInt(0,2) + 1
-            }
-            setDiceInColumn(column)
+            easyComputerTurn()
         }
-        //TODO: add difficulties
+        if (currentPlayer.difficulty == "medium") {
+            mediumComputerTurn()
+        }
+        if(currentPlayer.difficulty == "hard") {
+            hardComputerTurn()
+        }
+    }
+
+    fun easyComputerTurn() {
+        var column = Random.nextInt(0,3)
+        while (checkIfColumnFull(currentPlayer.board.boardPointValues[column])) {
+            column = Random.nextInt(0,3)
+        }
+        setDiceInColumn(column)
+    }
+
+    fun mediumComputerTurn() {
+        if (!checkIfColumnFull(currentPlayer.board.boardPointValues[0]) && checkColumnForCurrentNumber(0)) {
+            setDiceInColumn(0)
+        }
+        else if (!checkIfColumnFull(currentPlayer.board.boardPointValues[1]) && checkColumnForCurrentNumber(1)) {
+            setDiceInColumn(1)
+        }
+        else if (!checkIfColumnFull(currentPlayer.board.boardPointValues[2]) && checkColumnForCurrentNumber(2)) {
+            setDiceInColumn(2)
+        }
+        else {
+            easyComputerTurn()
+        }
+    }
+
+    fun hardComputerTurn() {
+        val enemy = allPlayers[0]
+        val columnToAttack = checkForErasingEnemyDice()
+        if(columnToAttack != -1) {
+            setDiceInColumn(columnToAttack)
+        } else {
+            mediumComputerTurn()
+        }
     }
 
     fun startRound() {
         if(currentPhase != "rollDice") return
 
         currentDiceNumber = rollDice()
-        gameActivity.setDiceButtonIcon(currentDiceNumber)
+        if(currentPlayer.computer || currentPlayer == allPlayers[1]) {
+            gameActivity.setDiceButtonIconTop(currentDiceNumber)
+        }else {
+            gameActivity.setDiceButtonIconBottom(currentDiceNumber)
+        }
 
         currentPhase = "setDice"
     }
-
 
     fun rollDice(): Int {
         return Random.nextInt(1,6) + 1
@@ -78,9 +115,8 @@ class GameController(
 
     fun checkEnemyColumn(columnNumber: Int) {
         val enemy = if (currentPlayer == allPlayers[0]) allPlayers[1] else allPlayers[0]
-        println("Column: $columnNumber")
+
         enemy.board.boardPointValues[columnNumber].forEachIndexed { index, _ ->
-            println("Index: $index")
             if(enemy.board.boardPointValues[columnNumber][index] == currentDiceNumber) {
             enemy.board.boardPointValues[columnNumber][index] = 0
         }}
@@ -118,6 +154,25 @@ class GameController(
             }
         }
         return true
+    }
+
+    fun checkColumnForCurrentNumber(columnNumber: Int): Boolean {
+        return currentPlayer.board.boardPointValues[columnNumber].contains(currentDiceNumber)
+    }
+
+    fun checkForErasingEnemyDice(): Int {
+        allPlayers[0].board.boardPointValues.forEachIndexed { index, column ->
+            if (column.all { it == currentDiceNumber }) {
+                return index
+            }
+            if(column.count{ it == currentDiceNumber } == 2) {
+                return index
+            }
+            if(column.count { it == currentDiceNumber } == 1) {
+                return index
+            }
+        }
+        return -1
     }
 
     fun nextTurn() {
